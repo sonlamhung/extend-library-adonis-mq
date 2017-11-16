@@ -1,0 +1,119 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "adonis-mq",
+        "scope": null,
+        "escapedName": "adonis-mq",
+        "name": "adonis-mq",
+        "rawSpec": "",
+        "spec": "latest",
+        "type": "tag"
+      },
+      "D:\\PROJECT\\demo-adonisjs"
+    ],
+    [
+      {
+        "raw": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+        "spec": "http://git.luci.vn/lucnn/adonis-mq.git",
+        "type": "git"
+      },
+      "D:\\PROJECT\\demo-adonisjs"
+    ]
+  ],
+  "_from": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+  "_id": "adonis-mq@0.5.1",
+  "_inCache": true,
+  "_location": "/adonis-mq",
+  "_nodeVersion": "0.10.25",
+  "_npmOperationalInternal": {
+    "host": "packages-12-west.internal.npmjs.com",
+    "tmp": "tmp/adonis-mq-0.5.1.tgz_1478962016225_0.675085368566215"
+  },
+  "_npmUser": {
+    "name": "Luci",
+    "email": "luci@luci.vn"
+  },
+  "_npmVersion": "3.3.3",
+  "_phantomChildren": {
+    "core-util-is": "1.0.2",
+    "inherits": "2.0.3"
+  },
+  "_requested": {
+    "raw": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+    "scope": null,
+    "escapedName": null,
+    "name": null,
+    "rawSpec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+    "spec": "http://git.luci.vn/lucnn/adonis-mq.git",
+    "type": "git"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "git+http://git.luci.vn/lucnn/adonis-mq.git#92e69b2eb3d1bc7e13a953c16d6904ee535c7e42",
+  "_shasum": "46e69a0276c0a2afcc1d61963bb6ad46b68a37cd",
+  "_shrinkwrap": null,
+  "_spec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+  "_where": "D:\\PROJECT\\demo-adonisjs",
+  "author": {
+    "name": "Luci",
+    "email": "luci@luci.vn"
+  },
+  "bugs": {
+    "url": "http://git.luci.vn/lucnn/adonis-mq"
+  },
+  "dependencies": {
+    "bitsyntax": "~0.0.4",
+    "bluebird": "^3.4.6",
+    "buffer-more-ints": "0.0.2",
+    "readable-stream": "1.x >=1.1.9"
+  },
+  "description": "An AMQP 0-9-1 (e.g., RabbitMQ) library and client.",
+  "devDependencies": {
+    "claire": "0.4.1",
+    "istanbul": "0.1.x",
+    "mocha": "~1",
+    "uglify-js": "2.4.x"
+  },
+  "directories": {},
+  "dist": {
+    "shasum": "7cccfebabe56c2e984ea7a2243f7cefe6fbfc6cf",
+    "tarball": "https://registry.npmjs.org/adonis-mq/-/adonis-mq-0.5.1.tgz"
+  },
+  "engines": {
+    "node": ">=0.8 <6 || ^6"
+  },
+  "gitHead": "b21133d708fbb9677267428dd74ddb7fe7f1f80e",
+  "homepage": "http://git.luci.vn/lucnn/adonis-mq",
+  "keywords": [
+    "AMQP",
+    "AMQP 0-9-1",
+    "RabbitMQ"
+  ],
+  "license": "MIT",
+  "main": "./channel_api.js",
+  "maintainers": [
+    {
+      "name": "squaremo",
+      "email": "mikeb@squaremobius.net"
+    }
+  ],
+  "name": "adonis-mq",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+http://git.luci.vn/lucnn/adonis-mq.git"
+  },
+  "scripts": {
+    "prepublish": "make",
+    "test": "make test"
+  },
+  "version": "0.5.1"
+}
