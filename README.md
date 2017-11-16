@@ -34,7 +34,7 @@ mkdir app/Mq/Controllers
 touch app/Mq/queue.js
 ```
 
-### Loading rabbit.js file.
+### Loading queue.js file.
 Next we need to do is loading the `queue.js` file when starting the server. Which will be inside `bootstrap/http.js` file.
 Paste the below line of code after `use(Helpers.makeNameSpace('Http', 'routes'))`
 
