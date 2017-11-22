@@ -6,7 +6,7 @@
  * (c) Luci <lucnn@luci.vn>
  *
 */
-
+const co = require('co')
 const mixin = require('es6-class-mixin')
 const _ = require('lodash')
 const CE = require('../Exceptions')
@@ -81,7 +81,9 @@ class Channel {
       ch.prefetch(1)
       console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", name_queue)
       ch.consume(name_queue, function (msg) {
-        classFn[fn](ch,msg)
+        co(function * () {
+          yield classFn[fn](ch,msg)
+        })
       }, {noAck: false})
     })
   }
