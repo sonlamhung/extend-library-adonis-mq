@@ -13,7 +13,7 @@ const CE = require('../Exceptions')
 const util = require('../../lib/util')
 const Resetable = require('../../lib/Resetable')
 const Response = require('../Response')
-class Channel {
+class Queue {
 
   constructor (conn, Request, Session, name, closure, nameClass) {
     this._conn = conn
@@ -58,13 +58,14 @@ class Channel {
      * the execution order of below methods
      */
 
-    this._channel = this._conn.then(function (conn) {
+    this._queue = this._conn.then(function (conn) {
       return conn.createChannel()
     })
     if(this._closureIsAClass == true){
-      this._classFn = new this._closure(this._channel, this.Request, this.Session)
+      this._classFn = new this._closure(this._queue, this.Request, this.Session)
+      this.startQueue(name)
     }else{
-      this._closure.apply(undefined, [this._channel, this.Request])
+      this._closure.apply(undefined, [this._queue, this.Request])
     }
   }
 
@@ -76,7 +77,7 @@ class Channel {
     let fn = args[0]
     let name_queue = this._nameClass+'.'+fn
     let classFn = this._classFn
-    this._channel.then(function (ch) {
+    this._queue.then(function (ch) {
       ch.assertQueue(name_queue, {durable: true})
       ch.prefetch(1)
       console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", name_queue)
@@ -89,8 +90,8 @@ class Channel {
   }
 }
 
-class ExtendedChannel extends mixin(
-  Channel
+class ExtendedQueue extends mixin(
+  Queue
 ) {}
 
-module.exports = ExtendedChannel
+module.exports = ExtendedQueue

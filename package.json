@@ -23,6 +23,18 @@
         "type": "git"
       },
       "D:\\PROJECT\\demo-adonisjs"
+    ],
+    [
+      {
+        "raw": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+        "scope": null,
+        "escapedName": null,
+        "name": null,
+        "rawSpec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+        "spec": "http://git.luci.vn/lucnn/adonis-mq.git",
+        "type": "git"
+      },
+      "D:\\PROJECT\\demo-adonisjs"
     ]
   ],
   "_from": "git+http://git.luci.vn/lucnn/adonis-mq.git",
@@ -56,8 +68,8 @@
     "#USER",
     "/"
   ],
-  "_resolved": "git+http://git.luci.vn/lucnn/adonis-mq.git#92e69b2eb3d1bc7e13a953c16d6904ee535c7e42",
-  "_shasum": "46e69a0276c0a2afcc1d61963bb6ad46b68a37cd",
+  "_resolved": "git+http://git.luci.vn/lucnn/adonis-mq.git#aaf2638ef16e36d3c898dc7b36adf8fde7b865d9",
+  "_shasum": "f08a0b347f34ac9e75f1139d0ae252fc12621081",
   "_shrinkwrap": null,
   "_spec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
   "_where": "D:\\PROJECT\\demo-adonisjs",

@@ -49,9 +49,8 @@ use(Helpers.makeNameSpace('Mq', 'queue'))
 'use strict'
 
 const Mq = use('Mq')
-Mq.channel('receive', 'ReceiveController').startQueue('worker')
-Mq.channel('receive', 'ReceiveController').startQueue('worker1')
-Mq.channel('receive', 'ReceiveController').startQueue('worker2')
+Mq.queue('ReceiveController.worker', 5) // mame queue , max channel connected
+Mq.queue('ReceiveController.worker1', 5)
 ```
 
 ## example file app/Mq/Controllers/ReceiveController.js

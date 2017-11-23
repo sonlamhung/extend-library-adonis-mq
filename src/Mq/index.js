@@ -9,7 +9,7 @@
 
 const amqp = require('../../');
 const Ioc = require('adonis-fold').Ioc
-const Channel = require('../Channel')
+const Queue = require('../Queue')
 const Middleware = require('../Middleware')
 const CE = require('../Exceptions')
 const defaultConfig = require('../../examples/config')
@@ -34,7 +34,7 @@ class Mq {
      *
      * @type {Object}
      */
-    this._channelsPool = {}
+    this._queuesPool = {}
     /**
      * Here we override methods on the session provider extended
      * class to make sure the end user is not mutating the
@@ -60,7 +60,10 @@ class Mq {
    *
    * @throws {Error} when trying to access a non-existing channel
    */
-  channel (name, closure) {
+  queue (name_queue,max_channel = 1) {
+    const clac = name_queue.split(".")
+    var name = clac[1] || 'index';
+    var closure = clac[0];
     /**
      * If closure is a string. Resolve it as a controller from autoloaded
      * controllers.
@@ -69,22 +72,9 @@ class Mq {
     if (typeof (closure) === 'string') {
       closure = Ioc.use(this.Helpers.makeNameSpace(this.controllersPath, closure))
     }
-
-    /**
-     * Behave as a getter when closure is not defined.
-     * Also make sure to throw exception when channel
-     * has not been creating previously.
-     */
-    if (!closure) {
-      const channel = this._channelsPool[name]
-      if (!channel) {
-        throw CE.RuntimeException.uninitializedChannel(name)
-      }
-      return channel
+    for (var i = 0;i < max_channel;i++){
+      new Queue(this.conn, this.Request, this.Session, name, closure, nameClass)
     }
-
-    this._channelsPool[name] = this._channelsPool[name] || new Channel(this.conn, this.Request, this.Session, name, closure, nameClass)
-    return this._channelsPool[name]
   }
   /**
    * Attach a custom http server. Make sure to call
