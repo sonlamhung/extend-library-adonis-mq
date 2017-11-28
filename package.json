@@ -39,7 +39,9 @@
   ],
   "_from": "git+http://git.luci.vn/lucnn/adonis-mq.git",
   "_id": "adonis-mq@0.5.1",
+  "_inBundle": false,
   "_inCache": true,
+  "_integrity": "sha1-PJuQGTZN45rhziYGsGVArKRcnlo=",
   "_location": "/adonis-mq",
   "_nodeVersion": "0.10.25",
   "_npmOperationalInternal": {
@@ -56,23 +58,23 @@
     "inherits": "2.0.3"
   },
   "_requested": {
-    "raw": "git+http://git.luci.vn/lucnn/adonis-mq.git",
-    "scope": null,
-    "escapedName": null,
-    "name": null,
+    "type": "git",
+    "raw": "adonis-mq@git+http://git.luci.vn/lucnn/adonis-mq.git",
+    "name": "adonis-mq",
+    "escapedName": "adonis-mq",
     "rawSpec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
-    "spec": "http://git.luci.vn/lucnn/adonis-mq.git",
-    "type": "git"
+    "saveSpec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+    "fetchSpec": "http://git.luci.vn/lucnn/adonis-mq.git",
+    "gitCommittish": "master"
   },
   "_requiredBy": [
-    "#USER",
     "/"
   ],
-  "_resolved": "git+http://git.luci.vn/lucnn/adonis-mq.git#aaf2638ef16e36d3c898dc7b36adf8fde7b865d9",
+  "_resolved": "git+http://git.luci.vn/lucnn/adonis-mq.git#12c096c324c1c2b4d17b7ff2c19111f1a76c0ecf",
   "_shasum": "f08a0b347f34ac9e75f1139d0ae252fc12621081",
   "_shrinkwrap": null,
-  "_spec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
-  "_where": "D:\\PROJECT\\demo-adonisjs",
+  "_spec": "adonis-mq@git+http://git.luci.vn/lucnn/adonis-mq.git",
+  "_where": "D:\\PROJECT\\a-t",
   "author": {
     "name": "Luci",
     "email": "luci@luci.vn"
@@ -80,12 +82,14 @@
   "bugs": {
     "url": "http://git.luci.vn/lucnn/adonis-mq"
   },
+  "bundleDependencies": false,
   "dependencies": {
     "bitsyntax": "~0.0.4",
     "bluebird": "^3.4.6",
     "buffer-more-ints": "0.0.2",
     "readable-stream": "1.x >=1.1.9"
   },
+  "deprecated": false,
   "description": "An AMQP 0-9-1 (e.g., RabbitMQ) library and client.",
   "devDependencies": {
     "claire": "0.4.1",
@@ -118,7 +122,6 @@
   ],
   "name": "adonis-mq",
   "optionalDependencies": {},
-  "readme": "ERROR: No README data found!",
   "repository": {
     "type": "git",
     "url": "git+http://git.luci.vn/lucnn/adonis-mq.git"
@@ -127,5 +130,14 @@
     "prepublish": "make",
     "test": "make test"
   },
-  "version": "0.5.1"
+  "version": "0.5.1",
+  "warnings": [
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "node": ">=0.8 <6 || ^6"
+      },
+      "pkgid": "adonis-mq@0.5.1"
+    }
+  ]
 }

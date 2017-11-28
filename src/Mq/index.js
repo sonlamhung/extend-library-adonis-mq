@@ -60,10 +60,13 @@ class Mq {
    *
    * @throws {Error} when trying to access a non-existing channel
    */
-  queue (name_queue,max_channel = 1) {
-    const clac = name_queue.split(".")
-    var name = clac[1] || 'index';
+  queue (name_queue,channel_start = 1) {
+    const clac = this.paserQueueName(name_queue)
+    var name = clac[1];
     var closure = clac[0];
+
+    if(isNaN(channel_start) == true || channel_start <= 0){ throw new Error('max_channel khong dung'); }
+
     /**
      * If closure is a string. Resolve it as a controller from autoloaded
      * controllers.
@@ -72,9 +75,16 @@ class Mq {
     if (typeof (closure) === 'string') {
       closure = Ioc.use(this.Helpers.makeNameSpace(this.controllersPath, closure))
     }
-    for (var i = 0;i < max_channel;i++){
+    for (var i = 0;i < channel_start;i++){
       new Queue(this.conn, this.Request, this.Session, name, closure, nameClass)
     }
+    return {'name_queue': nameClass+'.'+name,'count_channel': i}
+  }
+
+  paserQueueName(name_queue){
+    const clac = name_queue.split(".")
+    if(clac.length !== 2){ throw new Error('name quene khong dung'); }
+    return clac
   }
   /**
    * Attach a custom http server. Make sure to call
@@ -83,6 +93,7 @@ class Mq {
    * @param {Object} server
    */
   attach () {
+    if(this.config.server_rabbit == null){ throw new Error('Url server Rabbit Null');}
     this.conn = amqp.connect(this.config.server_rabbit)
     perMessageDeflate: false
   }

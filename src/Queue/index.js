@@ -63,9 +63,10 @@ class Queue {
     })
     if(this._closureIsAClass == true){
       this._classFn = new this._closure(this._queue, this.Request, this.Session)
+      if(typeof this._classFn[name] !== 'function'){ throw new Error('Khong ton tai action') }
       this.startQueue(name)
     }else{
-      this._closure.apply(undefined, [this._queue, this.Request])
+      throw new Error('Khong ton tai action')
     }
   }
 
