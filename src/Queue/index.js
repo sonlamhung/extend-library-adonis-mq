@@ -15,10 +15,10 @@ const Resetable = require('../../lib/Resetable')
 const Response = require('../Response')
 class Queue {
 
-  constructor (conn, Request, Session, name, closure, nameClass) {
+  constructor (conn, Request, Session, name, closure, nameClass, noAck) {
     this._conn = conn
-
     this._nameClass = nameClass
+    this._noAck = noAck
 
     /**
      * A reference to the closure, it will be executed after
@@ -64,7 +64,7 @@ class Queue {
     if(this._closureIsAClass == true){
       this._classFn = new this._closure(this._queue, this.Request, this.Session)
       if(typeof this._classFn[name] !== 'function'){ throw new Error('Khong ton tai action') }
-      this.startQueue(name)
+      this.startQueue(name, this._noAck)
     }else{
       throw new Error('Khong ton tai action')
     }
@@ -76,6 +76,7 @@ class Queue {
   startQueue () {
     let args = _.toArray(arguments)
     let fn = args[0]
+    let noAck = args[1]
     let name_queue = this._nameClass+'.'+fn
     let classFn = this._classFn
     this._queue.then(function (ch) {
@@ -86,7 +87,7 @@ class Queue {
         co(function * () {
           yield classFn[fn](ch,msg)
         })
-      }, {noAck: false})
+      }, {noAck: noAck})
     })
   }
 }

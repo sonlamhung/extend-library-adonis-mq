@@ -41,7 +41,7 @@
   "_id": "adonis-mq@0.5.1",
   "_inBundle": false,
   "_inCache": true,
-  "_integrity": "sha1-PJuQGTZN45rhziYGsGVArKRcnlo=",
+  "_integrity": "sha1-gdw8S/gQqN3VPZibdga3u6pTyhY=",
   "_location": "/adonis-mq",
   "_nodeVersion": "0.10.25",
   "_npmOperationalInternal": {
@@ -59,22 +59,21 @@
   },
   "_requested": {
     "type": "git",
-    "raw": "adonis-mq@git+http://git.luci.vn/lucnn/adonis-mq.git",
-    "name": "adonis-mq",
-    "escapedName": "adonis-mq",
+    "raw": "git+http://git.luci.vn/lucnn/adonis-mq.git",
     "rawSpec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
     "saveSpec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
     "fetchSpec": "http://git.luci.vn/lucnn/adonis-mq.git",
     "gitCommittish": "master"
   },
   "_requiredBy": [
+    "#USER",
     "/"
   ],
-  "_resolved": "git+http://git.luci.vn/lucnn/adonis-mq.git#12c096c324c1c2b4d17b7ff2c19111f1a76c0ecf",
+  "_resolved": "git+http://git.luci.vn/lucnn/adonis-mq.git#6c4e719647aa35d41d0f1974504262eba9e851b4",
   "_shasum": "f08a0b347f34ac9e75f1139d0ae252fc12621081",
   "_shrinkwrap": null,
-  "_spec": "adonis-mq@git+http://git.luci.vn/lucnn/adonis-mq.git",
-  "_where": "D:\\PROJECT\\a-t",
+  "_spec": "git+http://git.luci.vn/lucnn/adonis-mq.git",
+  "_where": "D:\\PROJECT\\luci\\project-mq-iot",
   "author": {
     "name": "Luci",
     "email": "luci@luci.vn"
@@ -132,6 +131,13 @@
   },
   "version": "0.5.1",
   "warnings": [
+    {
+      "code": "ENOTSUP",
+      "required": {
+        "node": ">=0.8 <6 || ^6"
+      },
+      "pkgid": "adonis-mq@0.5.1"
+    },
     {
       "code": "ENOTSUP",
       "required": {

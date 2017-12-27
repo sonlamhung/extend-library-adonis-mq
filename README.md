@@ -49,7 +49,7 @@ use(Helpers.makeNameSpace('Mq', 'queue'))
 'use strict'
 
 const Mq = use('Mq')
-Mq.queue('ReceiveController.worker', 5) // mame queue , max channel connected
+Mq.queue('ReceiveController.worker', 5, true) // mame queue , max channel connected , noAck (true, false)
 Mq.queue('ReceiveController.worker1', 5)
 ```
 
