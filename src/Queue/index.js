@@ -15,12 +15,11 @@ const Resetable = require('../../lib/Resetable')
 const Response = require('../Response')
 class Queue {
 
-  constructor (conn, Request, Session, name, closure, nameClass, noAck, exchange, exchange_type) {
+  constructor (conn, Request, Session, name, closure, nameClass, noAck, exchange) {
     this._conn = conn
     this._nameClass = nameClass
     this._noAck = noAck
     this._exchange = exchange
-    this._exchange_type = exchange_type
 
     /**
      * A reference to the closure, it will be executed after
@@ -82,16 +81,12 @@ class Queue {
     let name_queue = this._nameClass+'.'+fn
     let classFn = this._classFn
     let exchange = this._exchange
-    let exchange_type = this._exchange_type
     this._queue.then(function (ch) {
       ch.assertQueue(name_queue, {durable: true})
       ch.prefetch(1)
       console.log(" [*] Waiting for messages in %s. To exit press CTRL+C", name_queue)
       if(exchange !== ''){
-        ch.bindQueue(name_queue, exchange, 'x-delayed-message');
-      }
-      if(exchange !== '' && exchange_type !== ''){
-        ch.bindQueue(name_queue, exchange, exchange_type);
+        ch.bindQueue(name_queue, exchange, name_queue);
       }
       ch.consume(name_queue, function (msg) {
         co(function * () {

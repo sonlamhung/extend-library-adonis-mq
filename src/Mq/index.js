@@ -60,7 +60,7 @@ class Mq {
    *
    * @throws {Error} when trying to access a non-existing channel
    */
-  queue (name_queue,channel_start = 1, noAck = false, exchange = '', exchange_type = '') {
+  queue (name_queue,channel_start = 1, noAck = false, exchange = '') {
     const clac = this.paserQueueName(name_queue)
     var name = clac[1];
     var closure = clac[0];
@@ -76,7 +76,7 @@ class Mq {
       closure = Ioc.use(this.Helpers.makeNameSpace(this.controllersPath, closure))
     }
     for (var i = 0;i < channel_start;i++){
-      new Queue(this.conn, this.Request, this.Session, name, closure, nameClass, noAck, exchange, exchange_type)
+      new Queue(this.conn, this.Request, this.Session, name, closure, nameClass, noAck, exchange)
     }
     return {'name_queue': nameClass+'.'+name,'count_channel': i}
   }
